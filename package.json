@@ -8,11 +8,14 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vue-resource": "^1.5.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
+    "vue-paginate": "^3.6.0",
+    "vue-router": "^3.4.9",
     "vue-template-compiler": "^2.6.11"
   }
 }
