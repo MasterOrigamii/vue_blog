@@ -1,0 +1,65 @@
+{
+  "1": {
+    "name": "zhang liang",
+    "password": "password1",
+    "profession": "programmer",
+    "id": 1
+  },
+  "2": {
+    "name": "wang hong",
+    "password": "password2",
+    "profession": "analyst",
+    "id": 2
+  },
+  "3": {
+    "name": "li yingying",
+    "password": "password",
+    "profession": "manager",
+    "id": 3
+  },
+  "4": {
+    "name": "John",
+    "surname": "Smith"
+  },
+  "5": {
+    "ifname": "ho",
+    "ilname": "zhong",
+    "ilogin": "hz",
+    "iemail": "hz@111.dd",
+    "ipwd": 123,
+    "irpwd": 123,
+    "iaddr1": "no.2 aaa road",
+    "iaddr2": "no .1 zzzz street",
+    "icity": "brans",
+    "izip": "ddd",
+    "icomment": "ho, anodd"
+  },
+  "6": {
+    "ifname": "刘",
+    "ilname": "黄梅",
+    "ilogin": "liuhongmei",
+    "iemail": "lhm@bjtu.edu.cn",
+    "ipwd": "p123457890",
+    "irpwd": "p123458901234567890",
+    "iaddr1": "北京市海淀区上园村3号北京交通大学",
+    "iaddr2": "北京市海淀区学院南路皂君庙121号",
+    "icity": "杭州",
+    "istate": "浙江",
+    "izip": 100044,
+    "icomment": "CORS exists to protect the internet from evil hackers.\nSeriously. Let’s make a very brief historical digression.\nFor many years a script from one site could not access the content of another site.\nThat simple, yet powerful rule was a foundation of the internet security. E.g. an evil script from website hacker.com could not access user’s mailbox at website gmail.com. People felt safe."
+  },
+  "7": {
+    "ifname": "zhang",
+    "ilname": "黄梅",
+    "ilogin": "liuhongmei",
+    "iemail": "lhm@bjtu.edu.cn",
+    "ipwd": "p123457890",
+    "irpwd": "p123458901234567890",
+    "iaddr1": "北京市海淀区上园村3号北京交通大学",
+    "iaddr2": "北京市海淀区学院南路皂君庙121号",
+    "icity": "ganzhou",
+    "istate": "山西",
+    "izip": 100044,
+    "icomment": "CORS exists to protect the internet from evil hackers.\nSeriously. Let’s make a very brief historical digression.\nFor many years a script from one site could not access the content of another site.\nThat simple, yet powerful rule was a foundation of the internet security. E.g. an evil script from website hacker.com could not access user’s mailbox at website gmail.com. People felt safe."
+  }
+}
