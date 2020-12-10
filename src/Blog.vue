@@ -8,9 +8,9 @@
       tag="div"
     >
       <section v-for="blog in paginated('blogs')">
-        <h5>{{ blog.title }}</h5>
-        <router-link :to="'/post/' + blog.id" class="btn btn-link">read more</router-link>
-        <hr>
+        <h5 id="title">{{ blog.title }}</h5>
+        <router-link :to="'/post/' + blog.id" class="btn btn-link" id="readmore">read more</router-link>
+<!--        <hr>-->
       </section>
     </paginate>
 
@@ -52,8 +52,14 @@ export default {
   /*贴吧内容栏样式设置*/
   section{
     background-color: rgba(66, 185, 131, 0.09);
+    padding-top: 20px;
+    padding-left: 20px;
+    border-bottom: solid lightgray;
+    margin-bottom: 20px;
   }
 
+  #readmore{
 
+  }
 
 </style>
