@@ -36,12 +36,26 @@ function getOnePost(id, callback) {
         var data = JSON.parse(dataString);
         callback(data);
     })
+}
+
+//登录
+function login(id, callback) {
+    var sql = "SELECT * FROM users WHERE telephone = ?;"
+    var arr = [id]
+    mysqlModule.connect(sql, arr,function (err, rawdata) {
+
+        var dataString = JSON.stringify(rawdata);
+        var data = JSON.parse(dataString);
+        callback(data);
+    })
 
 }
+
 
 //公开方法
 module.exports = {
     getComments,
     getPosts,
-    getOnePost
+    getOnePost,
+    login
 }

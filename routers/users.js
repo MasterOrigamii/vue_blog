@@ -1,5 +1,6 @@
 const controller = require("../controller/userController");
 
+
 const userRoutes = (app, fs) => {
 
     // variables
@@ -13,6 +14,9 @@ const userRoutes = (app, fs) => {
     app.get('/posts', controller.getPosts);
     //获取单个博客内容
     app.get('/posts/:id', controller.getOnePost);
+
+    //登录
+    app.post('/auth/login', controller.login);
 
 
 
