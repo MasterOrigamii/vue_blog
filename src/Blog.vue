@@ -12,26 +12,30 @@
           {{ blog.title.substring(0,30) }}
           {{ blog.title.length>=30?"......":"" }}
         </h4>
+
         <router-link :to="'/post/' + blog.id" class="btn btn-link" id="readmore">read more</router-link>
 <!--        <hr>-->
       </section>
     </paginate>
 
-    <paginate-links
-      for="blogs"
-      :async="true"
-      :show-step-links="true"
-      :step-links="{
+
+      <paginate-links
+              for="blogs"
+
+              :async="true"
+              :show-step-links="true"
+              :step-links="{
         next: 'Next',
         prev: 'Previous'
       }"
-      :classes="{
+              :classes="{
         'ul': 'pagination',
         'ul > li': 'page-item',
         'ul > li > a': 'page-link',
       }"
-    >
-    </paginate-links>
+      >
+      </paginate-links>
+
   </div>
 </template>
 
