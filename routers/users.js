@@ -10,6 +10,8 @@ const userRoutes = (app, fs) => {
     //查看评论
     app.get('/comments/:pid', controller.getComments);
     app.get('/posts', controller.getPosts);
+    app.get('/posts/:id', controller.getOnePost);
+
 
 
     // helper methods
@@ -45,19 +47,19 @@ const userRoutes = (app, fs) => {
     //     });
     // });
 
-    app.get('/posts/:id', (req, res) => {
-        fs.readFile(pdataPath, 'utf8', (err, data) => {
-            if (err) {
-                throw err;
-            }
-            const postId = req.params["id"];
-            const posts = JSON.parse(data);
-            for (var i = 0; i < posts.length;i++) {
-                if (posts[i].id==postId) break;
-            }
-            res.send(posts[i]);
-        });
-    });
+    // app.get('/posts/:id', (req, res) => {
+    //     fs.readFile(pdataPath, 'utf8', (err, data) => {
+    //         if (err) {
+    //             throw err;
+    //         }
+    //         const postId = req.params["id"];
+    //         const posts = JSON.parse(data);
+    //         for (var i = 0; i < posts.length;i++) {
+    //             if (posts[i].id==postId) break;
+    //         }
+    //         res.send(posts[i]);
+    //     });
+    // });
 
 
     // READ

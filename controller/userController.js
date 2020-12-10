@@ -24,8 +24,19 @@ const getPosts = (req, res) => {
     });
 };
 
+//查看一个博客信息
+const getOnePost = (req, res) => {
+    const id = req.params["id"];
+    commentsDao.getOnePost(id,result=>{
+        if(result.length>0)
+            res.send(result[0]);
+    });
+
+};
+
 
 module.exports = {
     getComments,
-    getPosts
+    getPosts,
+    getOnePost
 };

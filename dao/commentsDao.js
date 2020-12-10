@@ -26,8 +26,23 @@ function getPosts(callback) {
 
 }
 
+//获取所有博客信息
+function getOnePost(id, callback) {
+    var sql = "SELECT * FROM posts WHERE id = ?;"
+    var arr = [id]
+    mysqlModule.connect(sql, arr,function (err, rawdata) {
+
+        var dataString = JSON.stringify(rawdata);
+        var data = JSON.parse(dataString);
+        console.log(data);
+        callback(data);
+    })
+
+}
+
 //公开方法
 module.exports = {
     getComments,
-    getPosts
+    getPosts,
+    getOnePost
 }
