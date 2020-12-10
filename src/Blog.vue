@@ -8,7 +8,10 @@
       tag="div"
     >
       <section v-for="blog in paginated('blogs')">
-        <h5 id="title">{{ blog.title }}</h5>
+        <h4 id="title">
+          {{ blog.title.substring(0,30) }}
+          {{ blog.title.length>=30?"......":"" }}
+        </h4>
         <router-link :to="'/post/' + blog.id" class="btn btn-link" id="readmore">read more</router-link>
 <!--        <hr>-->
       </section>
@@ -56,10 +59,11 @@ export default {
     padding-left: 20px;
     border-bottom: solid lightgray;
     margin-bottom: 20px;
+    height: 100px;
   }
 
   #readmore{
-
+    float: right;
   }
 
 </style>
