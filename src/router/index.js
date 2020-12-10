@@ -11,6 +11,7 @@ Vue.use(VueRouter);
 
 // ENABLE SINGLE PAGE APP ROUTING
 const routes = [
+  { path: '/home', redirect:'/' },
   { path: '/', component: Blog },
   { path: '/post/:id', component: PostDetail },
   { path: '/write/', component: WriteBlog },

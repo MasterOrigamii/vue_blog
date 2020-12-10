@@ -3,6 +3,7 @@ import App from './App.vue'
 import VueResource from 'vue-resource'
 import VuePaginate from 'vue-paginate'
 import router from './router'
+import store from './store'
 import VeeValidate from 'vee-validate'
 // ENABLE USE 3RD PARTY PLUGINS
 Vue.use(VeeValidate)
@@ -13,5 +14,6 @@ Vue.use(VuePaginate);
 new Vue({
   el: '#app',
   router,
+  store,
   render: h => h(App)
 })
