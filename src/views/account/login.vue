@@ -79,6 +79,7 @@ export default {
     submit() {
       this.$validator.validateAll().then(res => {
         if (res) {
+          //调用store中user的login
           this.login(this.form.model)
         } else {
           swal(
