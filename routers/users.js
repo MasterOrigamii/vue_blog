@@ -9,7 +9,9 @@ const userRoutes = (app, fs) => {
 
     //查看评论
     app.get('/comments/:pid', controller.getComments);
+    //获取博客列表
     app.get('/posts', controller.getPosts);
+    //获取单个博客内容
     app.get('/posts/:id', controller.getOnePost);
 
 

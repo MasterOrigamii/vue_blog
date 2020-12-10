@@ -34,7 +34,6 @@ function getOnePost(id, callback) {
 
         var dataString = JSON.stringify(rawdata);
         var data = JSON.parse(dataString);
-        console.log(data);
         callback(data);
     })
 
