@@ -67,7 +67,20 @@ function register(newUser, callback) {
 
 }
 
-register
+
+function addComment(newComment, callback) {
+    // const nickname = newUser.name;
+    // const email = newUser.email;
+    // const pwd = newUser.password;
+    var sql = "INSERT INTO comments (postId, email, body) " +
+      "VALUES (?,?,?);"
+    mysqlModule.connect(sql, newComment,function (err, rawdata) {
+        if(err)
+            console.log(err)
+        callback(err);
+    })
+
+}
 
 
 //公开方法
@@ -76,5 +89,6 @@ module.exports = {
     getPosts,
     getOnePost,
     login,
-    register
+    register,
+    addComment
 }

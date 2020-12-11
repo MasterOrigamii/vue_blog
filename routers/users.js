@@ -21,7 +21,7 @@ const userRoutes = (app, fs) => {
     app.post('/auth/register', controller.register);
 
     //添加评论
-    app.post('/addComment', controller.getComments);
+    app.post('/addComment', controller.addComment);
 
 
 

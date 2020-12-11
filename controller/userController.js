@@ -42,7 +42,6 @@ const login = (req, res) => {
     console.log({email, pwd})
     commentsDao.login(email,result=>{
 
-
         if(result.length>0){
             if(pwd == result[0].pwd){// 账号密码正确，用户登录成功
                 delete result[0].pwd;
@@ -108,10 +107,25 @@ const register = (req, res) => {
 };
 
 
+const addComment = (req, res) => {
+    // 获取用户email和用户评论内容
+    const content = req.body.content;
+    const email = req.body.email;
+    const postId = req.body.postId;
+    const newComment = [postId,email,content];
+    console.log(newComment);
+
+    commentsDao.addComment(newComment,result=>{
+
+    });
+
+};
+
 module.exports = {
     getComments,
     getPosts,
     getOnePost,
     login,
-    register
+    register,
+    addComment
 };
