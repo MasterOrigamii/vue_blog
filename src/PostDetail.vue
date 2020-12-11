@@ -85,11 +85,12 @@ export default {
 			}
 
 			this.$http.post("http://localhost:9090/addComment/",obj)
-				.then(response => response.json(), error => console.log(error))
-				.then(json => this.set(this.comments,val,json), error => console.log(error))
-				.then(() => this.showCommentBox = true);
+					.then(response => response.json(), error => console.log(error))
+					.then(json =>	this.comments = json, error => console.log(error))
+					.then(() => this.showCommentBox = true);
 
 		}
+
   }
 
 }
