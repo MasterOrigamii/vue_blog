@@ -10,7 +10,7 @@ vue.use(vuex)
 const store = new vuex.Store({
   modules: {
     user: userModule,
-    state: stateModule,
+    stat: stateModule,
   },
 })
 

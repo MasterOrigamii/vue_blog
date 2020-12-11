@@ -50,6 +50,8 @@
 </template>
 
 <script>
+
+
 export default {
   data() {
     return {
@@ -72,11 +74,21 @@ export default {
 					.then(() => this.showCommentBox = true);
 	  },
 		mysubmit(){
-			this.$http.post("http://localhost:9090/addComment/",this.myComment)
+			const content = this.myComment;
+			let obj = null;
+			obj = this.$store.state.user.user;
+			if(obj){
+				obj["content"] = content;
+				obj["postId"] = this.$route.params.id
+			}else{//没有用户登录的信息，请用户登录
+
+			}
+
+			this.$http.post("http://localhost:9090/addComment/",obj)
 				.then(response => response.json(), error => console.log(error))
-				.then(json =>	this.comments = json, error => console.log(error))
+				.then(json => this.set(this.comments,val,json), error => console.log(error))
 				.then(() => this.showCommentBox = true);
-			console.log(this.myComment);
+
 		}
   }
 
