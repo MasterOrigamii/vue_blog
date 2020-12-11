@@ -8,19 +8,19 @@
             <p>Please provide required information to continue.</p>
 
             <div class="form-group">
-              <label>Username</label>
+              <label>Email</label>
               <input
-                v-validate="'required|min:3|max:16'"
-                v-model="form.model.username"
+                v-validate="'required|email'"
+                v-model="form.model.email"
                 class="form-control"
                 type="text"
-                autocomplete="username"
-                placeholder="Username"
-                name="username">
+                autocomplete="email"
+                placeholder="E-mail address"
+                name="email">
               <span
-                v-show="errors.has('username')"
+                v-show="errors.has('email')"
                 class="invalid-feedback"
-                v-html="errors.first('username')" />
+                v-html="errors.first('email')" />
             </div>
 
             <div class="form-group">
@@ -68,7 +68,7 @@ export default {
       form: {
         model: {
           password: '',
-          username: '',
+          email: '',
         },
       },
     }

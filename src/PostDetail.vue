@@ -36,22 +36,16 @@
 
 				<div class="form-group">
 					<h5>写下新评论</h5>
-					<textarea class="form-control" rows="3"></textarea>
+					<textarea v-model="myComment" class="form-control" rows="3"></textarea>
 				</div>
 				<div id="forbtn">
-					<button type="submit" class="btn btn-primary" id="submit_c">提交</button>
+					<button @click="mysubmit()" type="button"
+									class="btn btn-primary" id="submit_c"
+									:disabled="myComment.length==0">提交</button>
 				</div>
 			</form>
-
-
-
 		</article>
-
-
-
 	</div>
-
-
 
 </template>
 
@@ -62,6 +56,7 @@ export default {
       post: {},
 	  	comments: [],
 			showCommentBox: false,
+			myComment: ""
     }
   },
   created() {
@@ -75,7 +70,14 @@ export default {
       		.then(response => response.json(), error => console.log(error))
       		.then(json =>	this.comments = json, error => console.log(error))
 					.then(() => this.showCommentBox = true);
-	  }
+	  },
+		mysubmit(){
+			this.$http.post("http://localhost:9090/addComment/",this.myComment)
+				.then(response => response.json(), error => console.log(error))
+				.then(json =>	this.comments = json, error => console.log(error))
+				.then(() => this.showCommentBox = true);
+			console.log(this.myComment);
+		}
   }
 
 }

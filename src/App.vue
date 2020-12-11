@@ -20,7 +20,8 @@
 <!--        </div>-->
 <!--      </div>-->
 <!--    </nav>-->
-    <header-template-anonymous/>
+    <header-template v-if="isAuthenticated" />
+    <header-template-anonymous v-else/>
     <div class="beta-banner">
       <div class="alert alert-info">
         <span class="badge badge-info">Beta</span>&nbsp;
@@ -66,6 +67,26 @@
     data() {
       return {
         transitionName: 'slide-up'
+      }
+    },
+    watch: {
+      isAuthenticated(val) {
+        if (val) {
+          swal('You have successfuly logged in.', 'welcome!', 'success')
+          if (this.$route.query.redirect) {
+            this.$router.push({
+              path: this.$route.query.redirect
+            })
+          } else {
+            this.$router.push('/home')
+          }
+        } else {
+          // swal('You have been logged out.', 'Good bye!', 'info')
+          this.$router.push('/home')
+        }
+      },
+      $route(to, from) {
+        this.setTransition(to, from)
       }
     },
     created() {},

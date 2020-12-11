@@ -50,12 +50,9 @@ export default {
       router.push('/home')
     },
     login(context, obj) {
-      var id = obj.username;
-      var pwd = obj.password;
-      var mobj = {id, pwd};
-      console.log(mobj);
+
       return axios
-        .post(`${config.api}/auth/login`, mobj)
+        .post(`${config.api}/auth/login`, obj)
         .then(res => {
           context.commit('setAuthentication', res.data)
         })
