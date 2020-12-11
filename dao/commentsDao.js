@@ -39,9 +39,9 @@ function getOnePost(id, callback) {
 }
 
 //登录
-function login(id, callback) {
-    var sql = "SELECT * FROM users WHERE telephone = ?;"
-    var arr = [id]
+function login(email, callback) {
+    var sql = "SELECT * FROM users WHERE email = ?;"
+    var arr = [email]
     mysqlModule.connect(sql, arr,function (err, rawdata) {
 
         var dataString = JSON.stringify(rawdata);

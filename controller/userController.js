@@ -37,31 +37,37 @@ const getOnePost = (req, res) => {
 
 //登录
 const login = (req, res) => {
-    const id = req.body.id;
-    const pwd = req.body.pwd;
-    console.log({id, pwd})
-    commentsDao.login(id,result=>{
+    const email = req.body.email;
+    const pwd = req.body.password;
+    console.log({email, pwd})
+    commentsDao.login(email,result=>{
+
+
         if(result.length>0){
             if(pwd == result[0].pwd){// 账号密码正确，用户登录成功
+                delete result[0].pwd;
+                console.log(result[0]);
                 jwt.sign(
                   {
                       iss: config.get('options.iss') || 'iss-not-specified',
                       exp: Math.floor(Date.now() / 1000) + 24 * 60 * 60,
-                      data: id
+                      data: email
                   },
                   config.get('options.secret'),
                   (err, token) => {
                       if (!err)
                       res.json({
                           token,
-                          login: "恭喜你登录成功了"
+                          login: result[0]
                       })
                   }
                 )
             }else{
+                console.log("401")
                 res.sendStatus(401)
             }
         }else{
+            console.log("400")
             res.sendStatus(400)
         }
     });

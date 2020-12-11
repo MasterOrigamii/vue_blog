@@ -20,6 +20,9 @@ const userRoutes = (app, fs) => {
     //注册
     app.post('/auth/register', controller.register);
 
+    //添加评论
+    app.post('/addComment', controller.getComments);
+
 
 
     // helper methods
