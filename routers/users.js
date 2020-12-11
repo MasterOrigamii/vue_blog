@@ -17,6 +17,8 @@ const userRoutes = (app, fs) => {
 
     //登录
     app.post('/auth/login', controller.login);
+    //注册
+    app.post('/auth/register', controller.register);
 
 
 

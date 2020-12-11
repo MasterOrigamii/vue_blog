@@ -52,10 +52,29 @@ function login(id, callback) {
 }
 
 
+function register(newUser, callback) {
+    // const nickname = newUser.name;
+    // const email = newUser.email;
+    // const pwd = newUser.password;
+    var sql = "INSERT INTO users (nickname, email, pwd) " +
+      "VALUES (?,?,?);"
+    mysqlModule.connect(sql, newUser,function (err, rawdata) {
+        console.log(rawdata);
+        var dataString = JSON.stringify(rawdata);
+        var data = JSON.parse(dataString);
+        callback(data);
+    })
+
+}
+
+register
+
+
 //公开方法
 module.exports = {
     getComments,
     getPosts,
     getOnePost,
-    login
+    login,
+    register
 }
