@@ -113,10 +113,12 @@ const addComment = (req, res) => {
     const email = req.body.email;
     const postId = req.body.postId;
     const newComment = [postId,email,content];
-    console.log(newComment);
 
     commentsDao.addComment(newComment,result=>{
-
+        if(!result){
+            req["params"] = { pid: postId };
+            getComments(req, res);
+        }
     });
 
 };
