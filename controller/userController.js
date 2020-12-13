@@ -20,6 +20,7 @@ const getComments = (req, res) => {
 
 //查看所有博客简介列表信息
 const getPosts = (req, res) => {
+    console.log("getPosts");
     commentsDao.getPosts(result=>{
         res.send(result);
     });

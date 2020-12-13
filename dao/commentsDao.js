@@ -7,6 +7,7 @@ function getComments(postId, callback) {
     var sql = "SELECT * FROM comments WHERE postId = ?;"
     var arr = [postId]
     mysqlModule.connect(sql, arr,function (err,rawdata) {
+        if(err)console.log(err);
         var dataString = JSON.stringify(rawdata);
         var data = JSON.parse(dataString);
         callback(data);
