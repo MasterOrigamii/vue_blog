@@ -1,4 +1,5 @@
 <template>
+
   <div class="container">
 <!--    <nav class="navbar navbar-expand-md navbar-light bg-light">-->
 <!--      <a href="#" class="navbar-brand">贴吧</a>-->
@@ -25,7 +26,7 @@
     <div class="beta-banner">
       <div class="alert alert-info">
         <span class="badge badge-info">Beta</span>&nbsp;
-        <strong>This is a simple SPA app created by lipu.</strong>
+        <strong>This is a simple SPA app created by 李朴.</strong>
       </div>
     </div>
 
@@ -34,14 +35,15 @@
 
 
     <!--内容展示栏-->
-<!--    <div class="row">-->
-<!--      <div class="col-sm-12">-->
-<!--        <div class="jumbotron">-->
-<!--            <span class="display-6 h3">Vue.js 贴吧</span>-->
-<!--            <p class="lead"> A vue.js sample of Ajax, Pagination, Single Page App (SPA)...</p>-->
-<!--            <p></p>-->
-<!--        </div>-->
-<!--      </div>-->
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="jumbotron">
+            <span class="display-6 h3">Vue.js 贴吧</span>
+            <p class="lead"> A vue.js sample of Ajax, Pagination, Single Page App (SPA)...</p>
+            <p></p>
+        </div>
+      </div>
+    </div>
 
       <!--this is the tag, where the code from “children” components is displayed-->
     <router-view ></router-view>
@@ -51,7 +53,11 @@
       <hr>
       <p class="text-center"> <a href="http://localhost:9090/posts/" target="_blank">NodeJs Poster Service</a> &copy; 2020-12 </p>
     </footer>
-   </div>
+
+
+  </div>
+
+
 
 </template>
 
@@ -109,9 +115,7 @@
     background-color: red;
     width:100px;
   }
-  .container {
-    max-width: 900px;
-  }
+
   h1:first-letter, h2:first-letter {
     text-transform:uppercase;
   }
@@ -119,4 +123,5 @@
     padding: 12px;
     max-height: 100px;
   }
+
 </style>

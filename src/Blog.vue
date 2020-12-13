@@ -1,5 +1,5 @@
 <template>
-  <div class="col-sm-12">
+  <div>
     <!--分页函数-->
     <paginate
       name="blogs"
@@ -9,8 +9,8 @@
     >
       <section v-for="blog in paginated('blogs')">
         <h4 id="title">
-          {{ blog.title.substring(0,30) }}
-          {{ blog.title.length>=30?"......":"" }}
+          {{ blog.title.substring(0,limit) }}
+          {{ blog.title.length>=limit?"......":"" }}
         </h4>
 
         <router-link :to="'/post/' + blog.id" class="btn btn-link" id="readmore">read more</router-link>
@@ -18,22 +18,24 @@
       </section>
     </paginate>
 
-    <paginate-links
-            for="blogs"
 
-            :async="true"
-            :show-step-links="true"
-            :step-links="{
-      next: 'Next',
-      prev: 'Previous'
-    }"
-            :classes="{
-      'ul': 'pagination',
-      'ul > li': 'page-item',
-      'ul > li > a': 'page-link',
-    }"
-    >
-    </paginate-links>
+    <div class="col-lg-6 offset-lg-3">
+      <paginate-links
+        for="blogs"
+        :async="true"
+        :show-step-links="true"
+        :step-links="{
+          next: 'Next',
+          prev: 'Previous'
+        }"
+        :classes="{
+          'ul': 'pagination',
+          'ul > li': 'page-item',
+          'ul > li > a': 'page-link',
+        }"
+      >
+      </paginate-links>
+    </div>
 
   </div>
 </template>
@@ -43,7 +45,8 @@ export default {
   data () {
     return {
       posts: [],
-      paginate: ['blogs']
+      paginate: ['blogs'],
+      limit: 300
     }
   },
   created(){
@@ -55,6 +58,7 @@ export default {
 </script>
 
 <style>
+
   /*贴吧内容栏样式设置*/
   section{
     background-color: rgba(66, 185, 131, 0.09);
@@ -68,5 +72,12 @@ export default {
   #readmore{
     float: right;
   }
+  h4{
+    /*控制文字仅占用一行，若超出则裁切，末尾加省略号*/
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
 
 </style>

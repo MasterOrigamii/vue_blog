@@ -35,6 +35,8 @@ export default {
 			if(obj){
 				obj["title"] = title;
 				obj["content"] = content;
+				console.log(title);
+				console.log(content);
 				this.$http.post("http://localhost:9090/addBlog/",obj)
 						.then(response => response.json(), error => console.log(error))
 						.then(json =>	this.comments = json, error => console.log(error))
