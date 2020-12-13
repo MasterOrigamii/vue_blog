@@ -29,7 +29,7 @@
 
 ### 项目截图
 
-| ![项目主页](https://github.com/MasterOrigamii/vue_blog/blob/pics/home_after_login.jpg) |      |
+| <img src="https://github.com/MasterOrigamii/vue_blog/blob/pics/home_after_login.jpg" width="45%"> |      |
 | ------------------------------------------------------------ | ---- |
 |                                                              |      |
 |                                                              |      |
