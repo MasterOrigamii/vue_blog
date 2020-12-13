@@ -23,6 +23,9 @@ const userRoutes = (app, fs) => {
     //添加评论
     app.post('/addComment', controller.addComment);
 
+    //添加blog
+    app.post('/addBlog', controller.addBlog);
+
 
 
     // helper methods

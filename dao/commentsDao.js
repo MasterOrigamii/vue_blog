@@ -17,7 +17,7 @@ function getComments(postId, callback) {
 
 //获取所有博客信息
 function getPosts(callback) {
-    var sql = "SELECT * FROM posts;"
+    var sql = "SELECT * FROM posts order by id desc;"
     var arr = []
     mysqlModule.connect(sql, arr,function (err, rawdata) {
         var dataString = JSON.stringify(rawdata);
@@ -83,6 +83,18 @@ function addComment(newComment, callback) {
 
 }
 
+function addBlog(newBlog, callback) {
+
+    var sql = "INSERT INTO posts (userId, title, body) " +
+      "VALUES (?,?,?);"
+    mysqlModule.connect(sql, newBlog,function (err, rawdata) {
+        if(err)
+            console.log(err)
+        callback(err);
+    })
+
+}
+
 
 //公开方法
 module.exports = {
@@ -91,5 +103,6 @@ module.exports = {
     getOnePost,
     login,
     register,
-    addComment
+    addComment,
+    addBlog
 }

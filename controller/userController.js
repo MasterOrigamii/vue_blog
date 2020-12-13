@@ -20,7 +20,6 @@ const getComments = (req, res) => {
 
 //查看所有博客简介列表信息
 const getPosts = (req, res) => {
-    console.log("getPosts");
     commentsDao.getPosts(result=>{
         res.send(result);
     });
@@ -40,13 +39,11 @@ const getOnePost = (req, res) => {
 const login = (req, res) => {
     const email = req.body.email;
     const pwd = req.body.password;
-    console.log({email, pwd})
     commentsDao.login(email,result=>{
 
         if(result.length>0){
             if(pwd == result[0].pwd){// 账号密码正确，用户登录成功
                 delete result[0].pwd;
-                console.log(result[0]);
                 jwt.sign(
                   {
                       iss: config.get('options.iss') || 'iss-not-specified',
@@ -84,7 +81,6 @@ const register = (req, res) => {
     const email = req.body.email;
     const pwd = req.body.password;
     const newUser = [nickname,email,pwd];
-    console.log(newUser);
     if ( // 检验数据是否合法
       !nickname ||
       !email ||
@@ -124,11 +120,27 @@ const addComment = (req, res) => {
 
 };
 
+const addBlog = (req, res) => {
+    // 获取用户id 文章标题  和  文章内容
+    const content = req.body.content;
+    const title = req.body.title;
+    const userId = req.body.id;
+    const newBlog = [userId,title,content];
+    console.log(newBlog);
+    commentsDao.addBlog(newBlog,result=>{
+        if(!result){
+
+        }
+    });
+
+};
+
 module.exports = {
     getComments,
     getPosts,
     getOnePost,
     login,
     register,
-    addComment
+    addComment,
+    addBlog
 };
