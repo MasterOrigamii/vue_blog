@@ -44,9 +44,15 @@
         </div>
       </div>
     </div>
-
+    <transition
+      :name="transitionName"
+      appear="appear"
+      mode="out-in">
       <!--this is the tag, where the code from “children” components is displayed-->
-    <router-view ></router-view>
+      <router-view ></router-view>
+    </transition>
+
+
 
     <!--底端开始-->
     <footer class="col-sm-12">

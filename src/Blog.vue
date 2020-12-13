@@ -8,10 +8,12 @@
       tag="div"
     >
       <section v-for="blog in paginated('blogs')">
+        <router-link :to="'/post/' + blog.id">
         <h4 id="title">
           {{ blog.title.substring(0,limit) }}
           {{ blog.title.length>=limit?"......":"" }}
         </h4>
+        </router-link>
 
         <router-link :to="'/post/' + blog.id" class="btn btn-link" id="readmore">read more</router-link>
 <!--        <hr>-->
@@ -23,6 +25,7 @@
       <paginate-links
         for="blogs"
         :async="true"
+        :limit="8"
         :show-step-links="true"
         :step-links="{
           next: 'Next',

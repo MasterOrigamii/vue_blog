@@ -1,8 +1,8 @@
 <template>
 	<div class="container">
 		<article class="col-md-12">
-			<h4>{{ post.title }}</h4>
-			<p>{{ post.body }}</p>
+			<h1>{{ post.title }}</h1>
+			<pre>{{ post.body }}</pre>
 
 			<!--导航栏-->
 			<nav aria-label="breadcrumb">
@@ -122,5 +122,12 @@ export default {
 	}
 	#forbtn{
 		height: 50px;
+	}
+
+	pre {
+		white-space: pre-wrap;
+		word-wrap: break-word;
+		font-size: 20px;
+		margin-top: 30px;
 	}
 </style>
