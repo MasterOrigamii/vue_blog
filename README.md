@@ -29,7 +29,17 @@
 
 ### 项目截图
 
+<img src="https://github.com/MasterOrigamii/vue_blog/blob/pics/login.jpg" width="75%">
+
+<img src="https://github.com/MasterOrigamii/vue_blog/blob/pics/login_succ.jpg" width="75%">
+
+<img src="https://github.com/MasterOrigamii/vue_blog/blob/pics/register.jpg" width="75%">
+
 <img src="https://github.com/MasterOrigamii/vue_blog/blob/pics/home_after_login.jpg" width="75%">
+
+<img src="https://github.com/MasterOrigamii/vue_blog/blob/pics/post_detail.jpg" width="75%">
+
+<img src="https://github.com/MasterOrigamii/vue_blog/blob/pics/show_comments.jpg" width="75%">
 
 
 
