@@ -18,23 +18,22 @@
       </section>
     </paginate>
 
+    <paginate-links
+            for="blogs"
 
-      <paginate-links
-              for="blogs"
-
-              :async="true"
-              :show-step-links="true"
-              :step-links="{
-        next: 'Next',
-        prev: 'Previous'
-      }"
-              :classes="{
-        'ul': 'pagination',
-        'ul > li': 'page-item',
-        'ul > li > a': 'page-link',
-      }"
-      >
-      </paginate-links>
+            :async="true"
+            :show-step-links="true"
+            :step-links="{
+      next: 'Next',
+      prev: 'Previous'
+    }"
+            :classes="{
+      'ul': 'pagination',
+      'ul > li': 'page-item',
+      'ul > li > a': 'page-link',
+    }"
+    >
+    </paginate-links>
 
   </div>
 </template>
