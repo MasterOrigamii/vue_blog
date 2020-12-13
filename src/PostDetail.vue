@@ -1,30 +1,29 @@
 <template>
 	<div class="container">
 		<article class="col-md-12">
+			<h4>{{ post.title }}</h4>
+			<p>{{ post.body }}</p>
 
-				<h4>{{ post.title }}</h4>
-				<p>{{ post.body }}</p>
+			<!--导航栏-->
+			<nav aria-label="breadcrumb">
+				<!--有序列表-->
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><router-link :to="'/'">Home</router-link></li>
+					<li class="breadcrumb-item active" aria-current="page">{{ post.title }}</li>
+				</ol>
+			</nav>
 
-				<!--导航栏-->
-				<nav aria-label="breadcrumb">
-					<!--有序列表-->
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><router-link :to="'/'">Home</router-link></li>
-						<li class="breadcrumb-item active" aria-current="page">{{ post.title }}</li>
-					</ol>
-				</nav>
+			<!--评论区-->
+			<h5>Discussion</h5>
+			<button @click="showComments" v-if="!showCommentBox" class="btn btn-primary">show comments</button>
 
-				<!--评论区-->
-				<h5>Discussion</h5>
-				<button @click="showComments" v-if="!showCommentBox" class="btn btn-primary">show comments</button>
-
-				<ul class="list-group" v-if="showCommentBox">
-					<li v-for="comment in comments" class="list-group-item">
-						<strong>{{ comment.email }}	</strong>
-						<em> 评论说: </em>
-						{{ comment.body }}
-					</li>
-				</ul>
+			<ul class="list-group" v-if="showCommentBox">
+				<li v-for="comment in comments" class="list-group-item">
+					<strong>{{ comment.email }}	</strong>
+					<em> 评论说: </em>
+					{{ comment.body }}
+				</li>
+			</ul>
 
 
 
@@ -107,9 +106,6 @@ export default {
 					}
 				})
 			}
-
-
-
 		}
 
   }

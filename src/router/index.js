@@ -3,7 +3,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import PostDetail from '../PostDetail.vue'
 import Blog from '../Blog.vue'
-import WriteBlog from "../WriteBlog";
+import WriteBlog from "../views/home/WriteBlog";
 import register from '../views/account/register.vue'
 import login from '../views/account/login.vue'
 
