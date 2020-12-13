@@ -1,4 +1,5 @@
 <template>
+
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <ul class="navbar-nav">
       <li class="nav-item">
@@ -41,6 +42,8 @@
       </li>
     </ul>
   </nav>
+
+
 </template>
 
 <script>

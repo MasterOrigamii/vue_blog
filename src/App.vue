@@ -30,6 +30,8 @@
       </div>
     </div>
 
+
+
 <!--    <router-link :to="'/write/'" class="btn btn-primary" id="write">填写新Blog</router-link>-->
 <!--    <router-link :to="'/'" class="btn btn-primary" id="see">浏览Blog</router-link>-->
 
