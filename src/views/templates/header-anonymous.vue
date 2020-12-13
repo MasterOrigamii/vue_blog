@@ -16,16 +16,16 @@
           to="/about">About</router-link>
       </li>
 
-      <li class="nav-item" id="search">
-        <form class="form-inline">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search">
-            <div class="input-group-append">
-              <button type="button" class="btn btn-secondary"><i class="fa fa-search"></i></button>
-            </div>
-          </div>
-        </form>
-      </li>
+<!--      <li class="nav-item" id="search">-->
+<!--        <form class="form-inline">-->
+<!--          <div class="input-group">-->
+<!--            <input type="text" class="form-control" placeholder="Search">-->
+<!--            <div class="input-group-append">-->
+<!--              <button type="button" class="btn btn-secondary"><i class="fa fa-search"></i></button>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </form>-->
+<!--      </li>-->
 
     </ul>
     <ul class="navbar-nav ml-auto">

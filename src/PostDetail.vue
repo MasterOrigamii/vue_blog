@@ -50,7 +50,7 @@
 </template>
 
 <script>
-
+	import { mapActions } from 'vuex'
 
 export default {
   data() {
@@ -67,6 +67,7 @@ export default {
       .then(json => this.post = json, error => console.log(error));
   },
   methods: {
+	  ...mapActions(['login']),
 	  showComments(){
 			this.$http.get("http://localhost:9090/comments/" + this.$route.params.id)
       		.then(response => response.json(), error => console.log(error))
@@ -80,14 +81,34 @@ export default {
 			if(obj){
 				obj["content"] = content;
 				obj["postId"] = this.$route.params.id
+				this.$http.post("http://localhost:9090/addComment/",obj)
+						.then(response => response.json(), error => console.log(error))
+						.then(json =>	this.comments = json, error => console.log(error))
+						.then(() => this.showCommentBox = true);
 			}else{//没有用户登录的信息，请用户登录
-
+				swal({
+					title: '请您先登录后再评论',
+					text: '',
+					icon: 'warning',
+					buttons: {
+						cancel: {
+							text: 'Cancel',
+							visible: true,
+						},
+						confirm: {
+							text: 'Yes',
+						},
+					},
+					dangerMode: true,
+				}).then(confirm => {
+					if (confirm) {
+						//TODU:用户点击确认登录，跳转至登录界面
+						this.$router.push({path:'/auth/login'});
+					}
+				})
 			}
 
-			this.$http.post("http://localhost:9090/addComment/",obj)
-					.then(response => response.json(), error => console.log(error))
-					.then(json =>	this.comments = json, error => console.log(error))
-					.then(() => this.showCommentBox = true);
+
 
 		}
 
