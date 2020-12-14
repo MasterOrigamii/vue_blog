@@ -6,6 +6,8 @@ import Blog from '../Blog.vue'
 import WriteBlog from "../views/home/WriteBlog";
 import register from '../views/account/register.vue'
 import login from '../views/account/login.vue'
+import account from '../views/account/index.vue'
+import notFound from '../views/error/notFound.vue'
 
 Vue.use(VueRouter);
 
@@ -16,7 +18,10 @@ const routes = [
   { path: '/post/:id', component: PostDetail },
   { path: '/write/', component: WriteBlog },
   { path: '/auth/register', component: register },
-  { path: '/auth/login', component: login }
+  { path: '/auth/login', component: login },
+  { path: '/account', component: account },
+  { path: '*', component: notFound }
+
 ];
 
 const router = new VueRouter({

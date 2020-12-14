@@ -1,46 +1,38 @@
 <template>
 
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <span class="navbar-brand">Frontend</span>
-      </li>
 
-      <li class="nav-item">
-        <router-link
-          class="nav-link"
-          to="/home">Home</router-link>
-      </li>
-      <li class="nav-item">
-        <router-link
-          class="nav-link"
-          to="/about">About</router-link>
-      </li>
+    <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <router-link
+              class="nav-link"
+              to="/home">Home</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link
+              class="nav-link"
+              to="/about">About</router-link>
+          </li>
 
-<!--      <li class="nav-item" id="search">-->
-<!--        <form class="form-inline">-->
-<!--          <div class="input-group">-->
-<!--            <input type="text" class="form-control" placeholder="Search">-->
-<!--            <div class="input-group-append">-->
-<!--              <button type="button" class="btn btn-secondary"><i class="fa fa-search"></i></button>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </form>-->
-<!--      </li>-->
+          <li class="nav-item" id="Login">
+            <router-link
+              class="nav-link"
+              to="/auth/login">Login</router-link>
+          </li>
+          <li class="nav-item" id="Register">
+            <router-link
+              class="nav-link"
+              to="/auth/register">Register</router-link>
+          </li>
+        </ul>
+      </div>
 
-    </ul>
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <router-link
-          class="nav-link"
-          to="/auth/login">Login</router-link>
-      </li>
-      <li class="nav-item">
-        <router-link
-          class="nav-link"
-          to="/auth/register">Register</router-link>
-      </li>
-    </ul>
+
   </nav>
 
 
@@ -56,5 +48,11 @@ export default {
 
   #search{
     margin-left : 100px;
+  }
+  .nav-link{
+    font-size :16px;
+  }
+  .navbar-brand{
+    font-size :30px;
   }
 </style>
