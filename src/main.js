@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import 'jquery/dist/jquery'
 import 'bootswatch/dist/lux/bootstrap.min.css'
 import './assets/css/animations.styl'
 import './assets/css/pace.styl'
