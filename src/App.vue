@@ -72,6 +72,7 @@
 <script>
   import headerAnonymous from './views/templates/header-anonymous.vue'
   import header from './views/templates/header.vue'
+
   export default {
     name: 'App',
     components: {
