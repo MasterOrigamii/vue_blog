@@ -1,6 +1,9 @@
 // import other routes
 const userRoutes = require('./users');
 const fileRoutes = require('./files');
+const commentRoutes = require('./comments');
+const blogRoutes = require('./blog');
+
 
 const appRouter = (app, fs) => {
 
@@ -10,9 +13,10 @@ const appRouter = (app, fs) => {
     });
 
     // other routes
+    commentRoutes(app);
+    blogRoutes(app);
     userRoutes(app, fs);
     fileRoutes(app);
-
 
 };
 

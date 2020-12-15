@@ -3,30 +3,17 @@ const controller = require("../controller/userController");
 
 const userRoutes = (app, fs) => {
 
-    // variables
-    const dataPath = './data/users.json';
-    const pdataPath= './data/posts.json';
-    const cdataPath= './data/comments.json';
-
-    //查看评论
-    app.get('/comments/:pid', controller.getComments);
-    //获取博客列表
-    app.get('/posts', controller.getPosts);
-    //获取单个博客内容
-    app.get('/posts/:id', controller.getOnePost);
-
     //登录
     app.post('/auth/login', controller.login);
     //注册
     app.post('/auth/register', controller.register);
 
-    //添加评论
-    app.post('/addComment', controller.addComment);
-
-    //添加blog
-    app.post('/addBlog', controller.addBlog);
 
 
+    // variables
+    const dataPath = './data/users.json';
+    const pdataPath= './data/posts.json';
+    const cdataPath= './data/comments.json';
 
     // helper methods
     const readFile = (callback, returnJson = false, filePath = dataPath, encoding = 'utf8') => {

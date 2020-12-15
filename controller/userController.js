@@ -2,38 +2,7 @@ const commentsDao = require('../dao/commentsDao');
 const jwt = require('jsonwebtoken')
 const config = require('config')
 const validator = require('validator')
-//查看评论
-const getComments = (req, res) => {
-    const postId = req.params["pid"];
 
-    //获取对应pid的所有评论
-    commentsDao.getComments(postId, result=>{
-        var clist = [];
-        var j = 0;
-        for (var i = 0; i < result.length;i++) {
-            if (result[i].postId==postId)
-                clist[j++] = result[i];
-        }
-        res.send(clist);
-    });
-};
-
-//查看所有博客简介列表信息
-const getPosts = (req, res) => {
-    commentsDao.getPosts(result=>{
-        res.send(result);
-    });
-};
-
-//查看一个博客信息
-const getOnePost = (req, res) => {
-    const id = req.params["id"];
-    commentsDao.getOnePost(id,result=>{
-        if(result.length>0)
-            res.send(result[0]);
-    });
-
-};
 
 //登录
 const login = (req, res) => {
@@ -104,43 +73,8 @@ const register = (req, res) => {
 };
 
 
-const addComment = (req, res) => {
-    // 获取用户email和用户评论内容
-    const content = req.body.content;
-    const email = req.body.email;
-    const postId = req.body.postId;
-    const newComment = [postId,email,content];
-
-    commentsDao.addComment(newComment,result=>{
-        if(!result){
-            req["params"] = { pid: postId };
-            getComments(req, res);
-        }
-    });
-
-};
-
-const addBlog = (req, res) => {
-    // 获取用户id 文章标题  和  文章内容
-    const content = req.body.content;
-    const title = req.body.title;
-    const userId = req.body.id;
-    const newBlog = [userId,title,content];
-    console.log(newBlog);
-    commentsDao.addBlog(newBlog,result=>{
-        if(!result){
-
-        }
-    });
-
-};
 
 module.exports = {
-    getComments,
-    getPosts,
-    getOnePost,
     login,
     register,
-    addComment,
-    addBlog
 };
