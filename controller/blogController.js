@@ -23,10 +23,11 @@ const addBlog = (req, res) => {
   const title = req.body.title;
   const userId = req.body.id;
   const newBlog = [userId,title,content];
-  console.log(newBlog);
   blogDao.addBlog(newBlog,result=>{
     if(!result){
-
+      res.send("succ");
+    }else{
+      res.send("fail");
     }
   });
 
