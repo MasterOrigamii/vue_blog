@@ -14,7 +14,6 @@
 				  >提交</button>
 	  </div>
 
-
   </article>
 </template>
 
@@ -35,12 +34,28 @@ export default {
 			if(obj){
 				obj["title"] = title;
 				obj["content"] = content;
-				console.log(title);
-				console.log(content);
 				this.$http.post("http://localhost:9090/addBlog/",obj)
-						.then(response => response.json(), error => console.log(error))
-						.then(json =>	this.comments = json, error => console.log(error))
-						.then(() => this.showCommentBox = true);
+						.then(response => {
+							let result = response.body;
+							if(result == "succ"){
+								this.$router.push({path:'/'});
+							}else if(result == "fail"){
+								swal({
+									title: '提交Blog失败，请刷新后再试',
+									text: '',
+									icon: 'warning',
+									buttons: {
+										cancel: {
+											text: 'Cancel',
+											visible: true,
+										},
+										confirm: {
+											text: 'Yes',
+										},
+									},
+									dangerMode: true,
+								})
+							}}, error => console.log(error))
 			}else{//没有用户登录的信息，请用户登录
 				swal({
 					title: '请您先登录后再撰写博客',
