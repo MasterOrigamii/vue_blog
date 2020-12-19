@@ -31,10 +31,7 @@
           </li>
         </ul>
       </div>
-
-
   </nav>
-
 
 </template>
 
