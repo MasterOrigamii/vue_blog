@@ -25,14 +25,7 @@
 				</li>
 			</ul>
 
-
-
 			<form role="form">
-				<!--			<div class="form-group">-->
-				<!--				<h5>写下新评论</h5>-->
-				<!--				<input type="text" class="form-control" placeholder="文本输入">-->
-				<!--			</div>-->
-
 				<div class="form-group">
 					<h5>写下新评论</h5>
 					<textarea v-model="myComment" class="form-control" rows="3"></textarea>
@@ -50,6 +43,10 @@
 
 <script>
 	import { mapActions } from 'vuex'
+	import config from "./config";
+	import axios from "./utilities/axios";
+	import swal from "sweetalert";
+	import router from "./router";
 
 export default {
   data() {
@@ -73,17 +70,22 @@ export default {
       		.then(json =>	this.comments = json, error => console.log(error))
 					.then(() => this.showCommentBox = true);
 	  },
-		mysubmit(){
+		mysubmit(){//提交新评论
 			const content = this.myComment;
 			let obj = null;
 			obj = this.$store.state.user.user;
 			if(obj){
 				obj["content"] = content;
 				obj["postId"] = this.$route.params.id
-				this.$http.post("http://localhost:9090/addComment/",obj)
-						.then(response => response.json(), error => console.log(error))
-						.then(json =>	this.comments = json, error => console.log(error))
-						.then(() => this.showCommentBox = true);
+				return axios
+					.post(`${config.api}/api/addComment`, obj)
+					.then(response => {
+						this.comments = response.data})
+					.then(() => this.showCommentBox = true)
+					.catch((err) => {
+						if(err.response.status === 402)
+						swal('遇到错误402', '请刷新后再试!', 'error')
+					})
 			}else{//没有用户登录的信息，请用户登录
 				swal({
 					title: '请您先登录后再评论',
@@ -101,7 +103,6 @@ export default {
 					dangerMode: true,
 				}).then(confirm => {
 					if (confirm) {
-						//TODU:用户点击确认登录，跳转至登录界面
 						this.$router.push({path:'/auth/login'});
 					}
 				})

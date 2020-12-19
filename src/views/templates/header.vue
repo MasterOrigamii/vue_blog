@@ -36,9 +36,6 @@
         </li>
       </ul>
     </div>
-<!--    <ul class="navbar-nav ml-auto">-->
-
-<!--    </ul>-->
   </nav>
 </template>
 

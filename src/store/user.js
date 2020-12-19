@@ -50,7 +50,6 @@ export default {
       router.push('/home')
     },
     login(context, obj) {
-
       return axios
         .post(`${config.api}/auth/login`, obj)
         .then(res => {

@@ -1,26 +1,6 @@
 <template>
 
   <div class="container">
-<!--    <nav class="navbar navbar-expand-md navbar-light bg-light">-->
-<!--      <a href="#" class="navbar-brand">贴吧</a>-->
-<!--      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">-->
-<!--        <span class="navbar-toggler-icon"></span>-->
-<!--      </button>-->
-
-<!--      <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">-->
-<!--        <form class="form-inline">-->
-<!--          <div class="input-group">-->
-<!--            <input type="text" class="form-control" placeholder="Search">-->
-<!--            <div class="input-group-append">-->
-<!--              <button type="button" class="btn btn-secondary"><i class="fa fa-search"></i></button>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </form>-->
-<!--        <div class="navbar-nav">-->
-<!--          <a href="#" class="nav-item nav-link">Login</a>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </nav>-->
     <header-template v-if="isAuthenticated" />
     <header-template-anonymous v-else/>
     <div class="beta-banner">
@@ -29,12 +9,6 @@
         <strong>This is a simple SPA app created by 李朴.</strong>
       </div>
     </div>
-
-
-
-<!--    <router-link :to="'/write/'" class="btn btn-primary" id="write">填写新Blog</router-link>-->
-<!--    <router-link :to="'/'" class="btn btn-primary" id="see">浏览Blog</router-link>-->
-
 
     <!--内容展示栏-->
     <div class="row">
@@ -54,18 +28,12 @@
       <router-view ></router-view>
     </transition>
 
-
-
     <!--底端开始-->
     <footer class="col-sm-12">
       <hr>
       <p class="text-center"> <a href="http://localhost:9090/posts/" target="_blank">NodeJs Poster Service</a> &copy; 2020-12 </p>
     </footer>
-
-
   </div>
-
-
 
 </template>
 
@@ -120,10 +88,6 @@
 </script>
 
 <style>
-  #see{
-    background-color: red;
-    width:100px;
-  }
 
   h1:first-letter, h2:first-letter {
     text-transform:uppercase;

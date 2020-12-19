@@ -2,6 +2,9 @@ import axios from 'axios'
 
 import store from '../store'
 import router from '../router'
+import vue from 'vue'
+vue.use(axios)
+
 
 /* eslint-disable no-param-reassign */
 
@@ -23,8 +26,8 @@ function checkLoadingState(state) {
 axios.interceptors.request.use(
   cfg => {
     checkLoadingState(true)
-
     if (store.getters.isAuthenticated) {
+
       cfg.headers['x-access-token'] = store.getters.auth
     }
     return cfg
