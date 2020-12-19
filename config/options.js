@@ -3,10 +3,10 @@
  */
 module.exports = {
   db: {
-    name: 'template_node',
-    host: 'MUBAIDR-DESKTOP',
-    username: 'sa',
-    password: 'minion1234'
+    name: 'node',
+    host: 'DESKTOP',
+    username: 'lp',
+    password: 'lipu123456'
   },
   secret: 'someSecretStringToUseForAuthorizationRequests'
 }
