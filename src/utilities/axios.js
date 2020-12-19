@@ -3,6 +3,7 @@ import axios from 'axios'
 import store from '../store'
 import router from '../router'
 import vue from 'vue'
+import swal from "sweetalert";
 vue.use(axios)
 
 
@@ -55,6 +56,9 @@ axios.interceptors.response.use(
           redirect: router.app._route.fullPath,
         },
       })
+    }
+    else if(err.response.status === 402) {
+      swal('遇到错误402', '请刷新后再试!', 'error')
     }
     return Promise.reject(err)
   },

@@ -65,10 +65,12 @@ export default {
   methods: {
 	  ...mapActions(['login']),
 	  showComments(){
-			this.$http.get("http://localhost:9090/comments/" + this.$route.params.id)
-      		.then(response => response.json(), error => console.log(error))
-      		.then(json =>	this.comments = json, error => console.log(error))
-					.then(() => this.showCommentBox = true);
+			return axios
+				.get(`${config.api}/comments/` + this.$route.params.id)
+				.then(response => {
+					this.comments = response.data})
+				.then(() => this.showCommentBox = true)
+				.catch(() => {});
 	  },
 		mysubmit(){//提交新评论
 			const content = this.myComment;
@@ -82,10 +84,7 @@ export default {
 					.then(response => {
 						this.comments = response.data})
 					.then(() => this.showCommentBox = true)
-					.catch((err) => {
-						if(err.response.status === 402)
-						swal('遇到错误402', '请刷新后再试!', 'error')
-					})
+					.catch(() => {});
 			}else{//没有用户登录的信息，请用户登录
 				swal({
 					title: '请您先登录后再评论',
@@ -108,7 +107,6 @@ export default {
 				})
 			}
 		}
-
   }
 
 }
