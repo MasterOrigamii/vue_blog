@@ -17,6 +17,7 @@ const getOnePost = (req, res) => {
 
 };
 
+//添加一条博客信息
 const addBlog = (req, res) => {
   // 获取用户id 文章标题  和  文章内容
   const content = req.body.content;

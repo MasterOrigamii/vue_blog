@@ -19,7 +19,9 @@ const dbPool = {
     //连接方法，作为外部主要引用方法
     connect(sql,arr,fun){
         this.pool.getConnection(function (err, connection){
+            if(err) console.log(err);
             connection.query(sql,arr,fun)
+            connection.release()
         })
     }
 }
