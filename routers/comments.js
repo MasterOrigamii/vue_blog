@@ -7,7 +7,7 @@ const commentRoutes = (app, fs) => {
   app.get('/comments/:pid', controller.getComments);
 
   //添加评论
-  app.post('/addComment', controller.addComment);
+  app.post('/api/addComment', controller.addComment);
 
 };
 

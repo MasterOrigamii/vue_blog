@@ -1,8 +1,6 @@
 // 连接数据库
 const mysqlModule = require("../dbConfig/mysqlpool")
 
-
-
 //获取所有博客信息
 function getPosts(callback) {
   var sql = "SELECT * FROM posts order by id desc;"
@@ -27,6 +25,7 @@ function getOnePost(id, callback) {
   })
 }
 
+//添加一条博客
 function addBlog(newBlog, callback) {
 
   var sql = "INSERT INTO posts (userId, title, body) " +
@@ -38,7 +37,6 @@ function addBlog(newBlog, callback) {
   })
 
 }
-
 
 //公开方法
 module.exports = {

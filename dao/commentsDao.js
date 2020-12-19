@@ -1,18 +1,21 @@
 // 连接数据库
 const mysqlModule = require("../dbConfig/mysqlpool")
 
-
 //获取评论
 function getComments(postId, callback) {
     var sql = "SELECT * FROM comments WHERE postId = ?;"
     var arr = [postId]
     mysqlModule.connect(sql, arr,function (err,rawdata) {
-        if(err)console.log(err);
-        var dataString = JSON.stringify(rawdata);
-        var data = JSON.parse(dataString);
-        callback(data);
+        if(err){
+            console.log(err);
+            callback(err);
+        }
+        else{
+            var dataString = JSON.stringify(rawdata);
+            var data = JSON.parse(dataString);
+            callback(data);
+        }
     })
-
 }
 
 //获取所有博客信息
@@ -52,11 +55,8 @@ function login(email, callback) {
 
 }
 
-
+//注册
 function register(newUser, callback) {
-    // const nickname = newUser.name;
-    // const email = newUser.email;
-    // const pwd = newUser.password;
     var sql = "INSERT INTO users (nickname, email, pwd) " +
       "VALUES (?,?,?);"
     mysqlModule.connect(sql, newUser,function (err, rawdata) {
@@ -68,11 +68,8 @@ function register(newUser, callback) {
 
 }
 
-
+//添加评论
 function addComment(newComment, callback) {
-    // const nickname = newUser.name;
-    // const email = newUser.email;
-    // const pwd = newUser.password;
     var sql = "INSERT INTO comments (postId, email, body) " +
       "VALUES (?,?,?);"
     mysqlModule.connect(sql, newComment,function (err, rawdata) {

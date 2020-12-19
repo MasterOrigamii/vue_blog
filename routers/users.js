@@ -8,8 +8,6 @@ const userRoutes = (app, fs) => {
     //注册
     app.post('/auth/register', controller.register);
 
-
-
     // variables
     const dataPath = './data/users.json';
     const pdataPath= './data/posts.json';
@@ -73,6 +71,7 @@ const userRoutes = (app, fs) => {
             res.send(JSON.parse(data));
         });
     });
+
     // Read by id
     app.get('/users/:id', (req, res) => {
         readFile(data => {

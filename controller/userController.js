@@ -3,7 +3,6 @@ const jwt = require('jsonwebtoken')
 const config = require('config')
 const validator = require('validator')
 
-
 //登录
 const login = (req, res) => {
     const email = req.body.email;
@@ -42,10 +41,6 @@ const login = (req, res) => {
 
 const register = (req, res) => {
 
-    // 进行与数据库相关的注册操作
-    // 调用dao层方法
-
-    // 用户email nickname pwd
     const nickname = req.body.name;
     const email = req.body.email;
     const pwd = req.body.password;
@@ -71,8 +66,6 @@ const register = (req, res) => {
     });
 
 };
-
-
 
 module.exports = {
     login,
