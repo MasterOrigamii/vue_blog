@@ -1,22 +1,24 @@
 const commentsDao = require('../dao/commentsDao');
 
-/**添加一条博客
- *   若成功则调用getComments，返还新的Comments列表
- *   否则返还
+/**获取所有评论信息
+ *   根据pid获取该博客下的所有评论信息
+ *   无错误则返还评论数组
  */
 const getComments = (req, res) => {
   const postId = req.params["pid"];
 
   //获取对应pid的所有评论
   commentsDao.getComments(postId, result=>{
-
-    var clist = [];
-    var j = 0;
-    for (var i = 0; i < result.length;i++) {
-      if (result[i].postId==postId)
-        clist[j++] = result[i];
+    if(result==="error"){res.sendStatus(402);}
+    else {
+      var clist = [];
+      var j = 0;
+      for (var i = 0; i < result.length; i++) {
+        if (result[i].postId == postId)
+          clist[j++] = result[i];
+      }
+      res.send(clist);
     }
-    res.send(clist);
   });
 };
 

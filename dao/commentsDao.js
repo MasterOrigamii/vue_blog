@@ -8,7 +8,7 @@ function getComments(postId, callback) {
     mysqlModule.connect(sql, arr,function (err,rawdata) {
         if(err){
             console.log(err);
-            callback(err);
+            callback("error");
         }
         else{
             var dataString = JSON.stringify(rawdata);
